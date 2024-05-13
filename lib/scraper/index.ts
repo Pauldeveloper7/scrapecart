@@ -68,6 +68,7 @@ const description = extractDescription($)
     highestPrice: Number(originalPrice) || Number(currentPrice),
     averagePrice: Number(currentPrice) || Number(originalPrice),
   }
+  console.log(data)
   return data;
    } 
    catch (error:any) {
