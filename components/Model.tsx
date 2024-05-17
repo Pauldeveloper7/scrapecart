@@ -17,11 +17,11 @@ const Modal = ({ productId }: Props) => {
     setIsSubmitting(true);
 
     // Add your API call here
-    // await addUserEmailToProduct(productId, email);
+    await addUserEmailToProduct(productId, email);
 
     setIsSubmitting(false);
-    // setEmail('');
-    // closeModal();
+    setEmail('');
+    closeModal();
   };
 
   const openModal = () => setIsOpen(true);

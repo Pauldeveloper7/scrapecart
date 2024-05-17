@@ -126,7 +126,7 @@ const ProductDetails = async ({ params: { id } }: Props) => {
           </div>
 
           <div className="my-7 flex flex-col gap-5">
-            <div className="flex gap-5 flex-wrap">
+            <div className="flex gap-5 flex-wrap flex-row">
               <PriceInfoCard 
                 title="Current Price"
                 iconSrc="/assets/icons/price-tag.svg"
@@ -160,7 +160,7 @@ const ProductDetails = async ({ params: { id } }: Props) => {
             Product Description
           </h3>
 
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col  w-[100%] gap-4 text-pretty text-clip overflow-hidden ...">
             {product?.description?.split('\n')}
           </div>
         </div>
