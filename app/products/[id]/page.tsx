@@ -1,13 +1,12 @@
-import PriceInfoCard from '@/components/PriceInfoCard'
-import ProductCard from '@/components/ProductCard'
+import Modal from "@/components/Model";
+import PriceInfoCard from "@/components/PriceInfoCard";
+import ProductCard from "@/components/ProductCard";
 import { getProductById, getSimilarProducts } from '@/lib/action'
-import { formatNumber } from '@/lib/utils'
-import { Product } from '@/types'
-import Image from 'next/image'
-import Link from 'next/link'
-import { redirect } from 'next/navigation'
-import React from 'react'
-
+import { formatNumber } from "@/lib/utils";
+import { Product } from "@/types";
+import Image from "next/image";
+import Link from "next/link";
+import { redirect } from "next/navigation";
 type Props = {
   params: { id: string }
 }
@@ -21,7 +20,7 @@ const ProductDetails = async ({ params: { id } }: Props) => {
 
   return (
     <div className="product-container">
-      <div className="flex gap-28 xl:flex-row flex-col">
+      <div className="flex gap-28 xl:flex-row flex-col w-[80%]">
         <div className="product-image">
           <Image 
             src={product.image}
@@ -151,11 +150,11 @@ const ProductDetails = async ({ params: { id } }: Props) => {
             </div>
           </div>
 
-          {/* <Modal productId={id} /> */} , model
+          <Modal productId={id} />
         </div>
       </div>
 
-      <div className="flex flex-col gap-16">
+      <div className="flex flex-col gap-16 w-[80%]">
         <div className="flex flex-col gap-5">
           <h3 className="text-2xl text-secondary font-semibold">
             Product Description
@@ -184,7 +183,7 @@ const ProductDetails = async ({ params: { id } }: Props) => {
         <div className="py-14 flex flex-col gap-2 w-full">
           <p className="section-text">Similar Products</p>
 
-          <div className="flex flex-wrap gap-10 mt-7 w-full">
+          <div className="flex flex-wrap gap-7 mt-7 w-[80%]">
             {similarProducts.map((product) => (
               <ProductCard key={product._id} product={product} />
             ))}
