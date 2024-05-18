@@ -1,3 +1,4 @@
+// 'use client'
 import Modal from "@/components/Model";
 import PriceInfoCard from "@/components/PriceInfoCard";
 import ProductCard from "@/components/ProductCard";
@@ -6,12 +7,13 @@ import { formatNumber } from "@/lib/utils";
 import { Product } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
+// import { useState } from "react";
 import { redirect } from "next/navigation";
 type Props = {
   params: { id: string }
 }
-
 const ProductDetails = async ({ params: { id } }: Props) => {
+  // const [readmore, SetReadmore] = useState(false)
   const product: Product = await getProductById(id);
 
   if(!product) redirect('/')
@@ -161,7 +163,11 @@ const ProductDetails = async ({ params: { id } }: Props) => {
           </h3>
 
           <div className="flex flex-col  w-[100%] gap-4 text-pretty text-clip overflow-hidden ...">
-            {product?.description?.split('\n')}
+            {/* {product?.description?.split('\n')} */}
+           { product.description.length> 1500? product.description.substring(0, 1500 ) 
+            
+           : product.description.split('\n') }
+            {product.description.length>1500 && <><button>...Read more</button></> }
           </div>
         </div>
 
@@ -173,7 +179,7 @@ const ProductDetails = async ({ params: { id } }: Props) => {
             height={22}
           />
 
-          <Link href="/" className="text-base text-white">
+          <Link href={product.url} className="text-base text-white">
             Buy Now
           </Link>
         </button>
