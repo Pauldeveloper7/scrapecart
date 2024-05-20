@@ -11,16 +11,19 @@
 @layer base {
   body {
     @apply font-inter;
-    background-color:grey ;
     color:white;
   }
 }
-
+/* @layer background{
+  @ apply bg-gradient-to-r from-violet-500 via-fuchsia-500 to-sky-500
+} */
 @layer utilities {
   .btn {
     @apply py-4 px-4 bg-secondary hover:bg-opacity-70 rounded-[30px] text-white text-lg font-semibold;
   }
-
+  .background{
+    @apply bg-gradient-to-t from-indigo-700 via-indigo-600 to-indigo-800
+  }
   .head-text {
     @apply mt-4 text-6xl leading-[72px] font-bold tracking-[-1.2px] text-gray-900;
   }

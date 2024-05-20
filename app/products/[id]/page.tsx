@@ -1,19 +1,17 @@
-// 'use client'
 import Modal from "@/components/Model";
 import PriceInfoCard from "@/components/PriceInfoCard";
 import ProductCard from "@/components/ProductCard";
+import ProductDesc from "@/components/ProductDesc";
 import { getProductById, getSimilarProducts } from '@/lib/action'
 import { formatNumber } from "@/lib/utils";
 import { Product } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
-// import { useState } from "react";
 import { redirect } from "next/navigation";
 type Props = {
   params: { id: string }
 }
 const ProductDetails = async ({ params: { id } }: Props) => {
-  // const [readmore, SetReadmore] = useState(false)
   const product: Product = await getProductById(id);
 
   if(!product) redirect('/')
@@ -23,13 +21,13 @@ const ProductDetails = async ({ params: { id } }: Props) => {
   return (
     <div className="product-container">
       <div className="flex gap-28 xl:flex-row flex-col w-[80%]">
-        <div className="product-image">
+        <div className="product-image m-auto w-full">
           <Image 
             src={product.image}
             alt={product.title}
             width={580}
             height={400}
-            className="mx-auto"
+            className="mx-auto px-10"
           />
         </div>
 
@@ -163,13 +161,9 @@ const ProductDetails = async ({ params: { id } }: Props) => {
           </h3>
 
           <div className="flex flex-col  w-[100%] gap-4 text-pretty text-clip overflow-hidden ...">
-            {/* {product?.description?.split('\n')} */}
-           { product.description.length> 1500? product.description.substring(0, 1500 ) 
-            
-           : product.description.split('\n') }
-            {product.description.length>1500 && <><button>...Read more</button></> }
+            <ProductDesc description={product.description} />
           </div>
-        </div>
+        </div> 
 
         <button className="btn w-fit mx-auto flex items-center justify-center gap-3 min-w-[200px]">
           <Image 
