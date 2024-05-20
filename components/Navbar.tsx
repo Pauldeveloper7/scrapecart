@@ -1,13 +1,18 @@
+'use client'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-const navIcons = [
-  {src:'assets/icons/search.svg', alt:'search'},
-  {src:'assets/icons/black-heart.svg', alt:'black-heart'},
-  {src:'assets/icons/user.svg', alt:'user'}, 
-]
+import SearchIcon from '@mui/icons-material/Search';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import PersonIcon from '@mui/icons-material/Person';
 
 const Navbar = () => {
+  const navIcons = [
+    <SearchIcon key={1}  /> , 
+    <FavoriteIcon key={2} /> ,
+    <PersonIcon key={3}  /> ,
+  
+  ]
   return (
     <header className='w-full  '>
       <nav className='nav'>
@@ -19,7 +24,7 @@ const Navbar = () => {
              </Link>
       <div className='flex items-center gap-5'>
       {navIcons.map((icon)=>{
-        return <Image src={icon.src} width={28} height={28} alt={icon.alt} key={icon.alt} className='object-contain' />
+        return icon
       })}
       </div>
       </nav>

@@ -9,7 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
     "@headlessui/react": "^2.0.3",
+    "@mui/icons-material": "^5.15.18",
+    "@mui/material": "^5.15.18",
     "axios": "^1.6.8",
     "cheerio": "^1.0.0-rc.12",
     "mongodb": "^6.6.1",
