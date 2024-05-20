@@ -9,6 +9,7 @@ import { Product } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
 import { redirect } from "next/navigation";
+import FavoriteIcon from '@mui/icons-material/Favorite';
 type Props = {
   params: { id: string }
 }
@@ -52,12 +53,7 @@ const ProductDetails = async ({ params: { id } }: Props) => {
 
             <div className="flex items-center gap-3">
               <div className="product-hearts">
-                <Image 
-                  src="/assets/icons/red-heart.svg"
-                  alt="heart"
-                  width={20}
-                  height={20}
-                />
+               <FavoriteIcon className=" text-red-700"/>
 
                 <p className="text-base font-semibold text-[#D46F77]">
                   {product.reviewsCount}
