@@ -2,6 +2,7 @@ import Modal from "@/components/Model";
 import PriceInfoCard from "@/components/PriceInfoCard";
 import ProductCard from "@/components/ProductCard";
 import ProductDesc from "@/components/ProductDesc";
+import Sharebtn from "@/components/Sharebtn";
 import { getProductById, getSimilarProducts } from '@/lib/action'
 import { formatNumber } from "@/lib/utils";
 import { Product } from "@/types";
@@ -11,10 +12,12 @@ import { redirect } from "next/navigation";
 type Props = {
   params: { id: string }
 }
+
 const ProductDetails = async ({ params: { id } }: Props) => {
   const product: Product = await getProductById(id);
-
   if(!product) redirect('/')
+    const shareUrl = `https://scrapecart.vercel.app/products/${product._id}`;
+    const shareTitle = `Check out this product: ${product.title}`;
 
   const similarProducts = await getSimilarProducts(id);
 
@@ -71,12 +74,16 @@ const ProductDetails = async ({ params: { id } }: Props) => {
               </div>
 
               <div className="p-2 bg-white-200 rounded-10">
-                <Image 
+                {/* <Image 
                   src="/assets/icons/share.svg"
                   alt="share"
                   width={20}
                   height={20}
-                />
+                /> */}
+                <Sharebtn 
+                url={shareUrl}
+                title={shareTitle}
+                 />
               </div>
             </div>
           </div>
