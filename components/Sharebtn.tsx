@@ -3,6 +3,7 @@ import { Button, Dialog, DialogPanel, DialogTitle, Transition, TransitionChild }
 import { WhatsappIcon ,WhatsappShareButton , FacebookIcon , TwitterIcon, PinterestIcon  , TwitterShareButton, FacebookShareButton, PinterestShareButton  } from 'react-share'
 import { useState } from "react"
 import Image from 'next/image'
+import ShareIcon from '@mui/icons-material/Share';
 interface props{
     url:string;
     title:string;
@@ -15,11 +16,10 @@ const Sharebtn = ( {url , title}:props) => {
 
   return (
     <div>
-     <Image 
-                  src="/assets/icons/share.svg"
-                  alt="share"
+     <ShareIcon 
                   width={20}
                   height={20}
+                className='text-blue-700'
                   onClick={()=>{
                       if (navigator.clipboard) {
                           navigator.clipboard.writeText(url);
@@ -49,7 +49,7 @@ const Sharebtn = ( {url , title}:props) => {
                     Share this product with others
                   </DialogTitle>
                  
-                  <div className='icons flex gap-7 justify-center'>
+                  <div className='icons flex gap-7 justify-center mt-7'>
                     <WhatsappShareButton url={url}>
                     <WhatsappIcon size={32} round={true} />
                     </WhatsappShareButton>
@@ -63,7 +63,7 @@ const Sharebtn = ( {url , title}:props) => {
                    <PinterestIcon size={32} round={true}/>
                     </PinterestShareButton>
                       </div>
-                  <div className="mt-4">
+                  <div className="mt-4 flex justify-end items-end">
                     <Button
                       className="inline-flex items-center gap-2 rounded-md bg-gray-700 py-1.5 px-3 text-sm/6 font-semibold text-white shadow-inner shadow-white/10 focus:outline-none data-[hover]:bg-gray-600 data-[open]:bg-gray-700 data-[focus]:outline-1 data-[focus]:outline-white"
                       onClick={close}

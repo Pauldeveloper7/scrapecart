@@ -10,6 +10,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
+import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
+import StarIcon from '@mui/icons-material/Star';
+import ReviewsIcon from '@mui/icons-material/Reviews';
+import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 type Props = {
   params: { id: string }
 }
@@ -53,7 +58,7 @@ const ProductDetails = async ({ params: { id } }: Props) => {
 
             <div className="flex items-center gap-3">
               <div className="product-hearts">
-               <FavoriteIcon className=" text-red-700"/>
+               <FavoriteIcon className=" text-blue-700"/>
 
                 <p className="text-base font-semibold text-[#D46F77]">
                   {product.reviewsCount}
@@ -61,21 +66,11 @@ const ProductDetails = async ({ params: { id } }: Props) => {
               </div>
 
               <div className="p-2 bg-white-200 rounded-10">
-                <Image 
-                  src="/assets/icons/bookmark.svg"
-                  alt="bookmark"
-                  width={20}
-                  height={20}
-                />
+              <BookmarkBorderIcon className="text-blue-700"/>
               </div>
 
               <div className="p-2 bg-white-200 rounded-10">
-                {/* <Image 
-                  src="/assets/icons/share.svg"
-                  alt="share"
-                  width={20}
-                  height={20}
-                /> */}
+               
                 <Sharebtn 
                 url={shareUrl}
                 title={shareTitle}
@@ -97,24 +92,14 @@ const ProductDetails = async ({ params: { id } }: Props) => {
             <div className="flex flex-col gap-4">
               <div className="flex gap-3">
                 <div className="product-stars">
-                  <Image 
-                    src="/assets/icons/star.svg"
-                    alt="star"
-                    width={16}
-                    height={16}
-                  />
+                 <StarIcon className="text-blue-700"/>
                   <p className="text-sm text-primary-orange font-semibold">
                     {product.stars || '25'}
                   </p>
                 </div>
 
                 <div className="product-reviews">
-                  <Image 
-                    src="/assets/icons/comment.svg"
-                    alt="comment"
-                    width={16}
-                    height={16}
-                  />
+                <ReviewsIcon className="text-blue-700"/>
                   <p className="text-sm text-secondary font-semibold">
                     {product.reviewsCount} Reviews
                   </p>
@@ -130,7 +115,7 @@ const ProductDetails = async ({ params: { id } }: Props) => {
 
           <div className="my-7 flex flex-col gap-5">
             <div className="flex gap-5 flex-wrap flex-row">
-              <PriceInfoCard 
+            <PriceInfoCard 
                 title="Current Price"
                 iconSrc="/assets/icons/price-tag.svg"
                 value={`${product.currency} ${formatNumber(product.currentPrice)}`}
@@ -169,12 +154,7 @@ const ProductDetails = async ({ params: { id } }: Props) => {
         </div> 
 
         <button className="btn w-fit mx-auto flex items-center justify-center gap-3 min-w-[200px]">
-          <Image 
-            src="/assets/icons/bag.svg"
-            alt="check"
-            width={22}
-            height={22}
-          />
+        <ShoppingBagIcon/>
 
           <Link href={product.url} className="text-base text-white">
             Buy Now

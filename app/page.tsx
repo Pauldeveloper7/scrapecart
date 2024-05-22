@@ -4,6 +4,7 @@ import Image from 'next/image'
 import React from 'react'
 import { getAllProducts } from '@/lib/action'
 import ProductCard from '@/components/ProductCard'
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 const page = async () =>   {
   const allProducts =  await getAllProducts()
   return (
@@ -12,7 +13,7 @@ const page = async () =>   {
       <div className=' flex max-xl:flex-col  gap-16'>
      <div className='flex flex-col justify-center'>
         <p className='small-text'>Smart Shopping Here :
-        <Image src={'/assets/icons/arrow-right.svg'} alt=' arrow-right' width={16} height={16} /></p>
+        <ArrowForwardIcon/></p>
         <h1 className=' head-text'>Unleash  the Power of 
         <span className='text-primary'> ScrapeCart </span> </h1>
         <p className=' mt-6'>Powerful, self-serve product and 

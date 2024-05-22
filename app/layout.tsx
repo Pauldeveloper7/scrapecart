@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter ,Raleway } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import SellIcon from '@mui/icons-material/Sell';
 
 const inter = Inter({ subsets: ["latin"] });
 const raleway = Raleway({ 
@@ -13,6 +14,9 @@ const raleway = Raleway({
 export const metadata: Metadata = {
   title: "ScrapeCart",
   description: "Track product prices effortlessly and save money on your online shoping.",
+  icons: {
+    icon:'assets/icons/logo.svg'
+  },
 };
 
 export default function RootLayout({

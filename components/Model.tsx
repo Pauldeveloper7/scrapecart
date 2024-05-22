@@ -3,6 +3,8 @@ import { useState, Fragment  , FormEvent} from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import Image from 'next/image'
 import { addUserEmailToProduct } from '@/lib/action'
+import CloseIcon from '@mui/icons-material/Close';
+import EmailIcon from '@mui/icons-material/Email';
 interface Props {
   productId: string;
 }
@@ -71,14 +73,9 @@ const Modal = ({ productId }: Props) => {
                       />
                     </div>
 
-                    <Image 
-                      src="/assets/icons/x-close.svg"
-                      alt="close"
-                      width={24}
-                      height={24}
-                      className="cursor-pointer"
-                      onClick={closeModal}
-                    />
+                   
+                    <CloseIcon className="cursor-pointer text-black"
+                      onClick={closeModal}/>
                   </div>
 
                   <h4 className="dialog-head_text">
@@ -95,13 +92,7 @@ const Modal = ({ productId }: Props) => {
                     Email address
                   </label>
                   <div className="dialog-input_container">
-                    <Image 
-                      src="/assets/icons/mail.svg"
-                      alt='mail'
-                      width={18}
-                      height={18}
-                    />
-
+                     <EmailIcon className="text-black"/>
                     <input 
                       required
                       type="email"
