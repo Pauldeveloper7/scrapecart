@@ -1,12 +1,17 @@
-import HeroCarousel from '@/components/HeroCarousel'
-import Searchbar from '@/components/Searchbar'
+// import HeroCarousel from '@/components/HeroCarousel'
+import Search from '@/components/Search'
 import Image from 'next/image'
 import React from 'react'
 import { getAllProducts } from '@/lib/action'
 import ProductCard from '@/components/ProductCard'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import HeroCarousel from '@/components/HeroCarousel'
+import Searchbar from '@/components/Searchbar'
 const page = async () =>   {
-  const allProducts =  await getAllProducts()
+  const allProducts =  await getAllProducts();
+  
+  const p =   JSON.parse(JSON.stringify(allProducts))
+  // console.log(p)
   return (
     <>
       <section className='px-6  md:px-20 py-24 '>
@@ -21,23 +26,26 @@ const page = async () =>   {
         retain more.</p>
 
         <Searchbar/>
-
+      
      </div>
      <HeroCarousel/>
+
       </div>
       </section>
       <section className='trending-section'>
         <h2 className='section-text'>Featured</h2>
-        <div className=' flex flex-wrap gap-x-8 gap-y-16 '>
-          {allProducts?.map((product)=>{
+            <Search product={p} key={p._id}/>
+        {/* <div className=' flex flex-wrap gap-x-8 gap-y-16 '>
+          {allProducts?.map((product :any)=>{
             return (
            
               <ProductCard 
               key={product._id}
               product={product} />
             )
-          })}
-        </div>
+          })} */}
+
+        {/* </div> */}
       </section>
     </>
   )
