@@ -61,7 +61,7 @@ const ProductDetails = async ({ params: { id } }: Props) => {
                <FavoriteIcon className=" text-blue-700"/>
 
                 <p className="text-base font-semibold text-[#D46F77]">
-                  {product.reviewsCount}
+                  {product.reviewsCount +1}
                 </p>
               </div>
 
