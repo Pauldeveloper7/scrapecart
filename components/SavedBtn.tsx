@@ -7,7 +7,7 @@ const SavedBtn = () => {
     const [isSaved, setIsSaved] = useState(false)
 
   return (
-    <div>
+    <div className="cursor-pointer">
           {isSaved ? (
         <TurnedInRoundedIcon className="text-blue-700" onClick={() => setIsSaved(false)} />
       ) : (
