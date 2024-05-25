@@ -1,5 +1,3 @@
-'use client'
-import {usestate} from 'react'
 import Modal from "@/components/Model";
 import PriceInfoCard from "@/components/PriceInfoCard";
 import ProductCard from "@/components/ProductCard";
@@ -13,11 +11,11 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
-import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
+
 import StarIcon from '@mui/icons-material/Star';
 import ReviewsIcon from '@mui/icons-material/Reviews';
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
-import TurnedInRoundedIcon from '@mui/icons-material/TurnedInRounded';
+import SavedBtn from "@/components/SavedBtn";
 type Props = {
   params: { id: string }
 }
@@ -29,7 +27,6 @@ const ProductDetails = async ({ params: { id } }: Props) => {
     const shareTitle = `Check out this product: ${product.title}`;
 
   const similarProducts = await getSimilarProducts(id);
-   const [isSaved, setisSaved] = useState(false)
   return (
     <div className="product-container">
       <div className="flex gap-28 xl:flex-row flex-col w-[80%]">
@@ -69,15 +66,7 @@ const ProductDetails = async ({ params: { id } }: Props) => {
               </div>
 
               <div className="p-2 bg-white-200 rounded-10">
-               
-                  {
-                    isSaved?(
-                     <BookmarkBorderIcon className="text-blue-700" onClick={()=>setisSaved(true)}
-
-                    ):(
-                      <TurnedInRoundedIcon className="text-blue-700" />
-                    )
-                  }
+                  <SavedBtn/>
   
               </div>
 

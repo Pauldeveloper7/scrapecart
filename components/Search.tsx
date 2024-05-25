@@ -45,7 +45,7 @@ const Search: React.FC<Props> = ({ product }) => {
           type="text"
           value={searchText}
           onChange={handleSearchChange}
-          placeholder="Enter product name and price"
+          placeholder="Enter product name "
           className="searchbar-input"
           id="search-input-bar"
         />
